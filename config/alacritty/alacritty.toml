@@ -1,0 +1,22 @@
+#
+#Alacritty configuration file
+#
+# Vincenzo Tindaro Gaudiero - Tundrasoftware.it
+#
+
+[font]
+#font family and size
+
+normal= {family = "Tamzen", style = "Regular"}
+bold= {family = "Tamzen", style = "Regular"}
+italic= {family = "Tamzen", style = "Regular"}
+size = 12.0
+
+[window]
+
+dimensions = {columns = 80, lines = 24}
+
+[colors]
+[colors.primary]
+background = "0x000000"
+foreground = "0xFFFFFF"
