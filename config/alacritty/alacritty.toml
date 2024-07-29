@@ -1,8 +1,6 @@
-#
-#Alacritty configuration file
-#
-# Vincenzo Tindaro Gaudiero - Tundrasoftware.it
-#
+# Progetto Chromebook
+# Tema Alacritty - v1.0
+# Gaudiero Tindaro Vincenzo - tundrasoftware.it
 
 [font]
 #font family and size
@@ -18,5 +16,5 @@ dimensions = {columns = 80, lines = 24}
 
 [colors]
 [colors.primary]
-background = "0x000000"
-foreground = "0xFFFFFF"
+background = "0xB5B5AA"
+foreground = "0x2B2B2B"

@@ -1,0 +1,64 @@
+/*
+ * Progetto Chromebook
+ * Tema Rofi - v1.2
+ * Gaudiero Tindaro Vincenzo - tundrasoftware.it
+ */
+
+configuration {
+	modi:				"drun";
+	font:				"Tamzen 12";
+	display-drun: 		"";
+}
+
+@theme "/dev/null"
+
+* {
+	bg:					#b5b5aa;
+	fg:					#2b2b2b;
+	button:				#9e9e95;
+
+	background-color:	@bg;
+	text-color:			@fg;
+}
+
+window {
+	width:				50%;
+	y-offset:			-50px;
+	location: 			south;
+	border:             5;
+    border-color:       @fg;
+    border-radius:      0;
+    children: 			[listview];
+}
+
+prompt { enabled: false; }
+
+listview {
+	columns:            1;
+	lines:	            5;
+	cycle:              false;
+	layout:             vertical;
+}
+
+mainbox {
+	children:           [ inputbar, listview ];
+	spacing:            2%;
+}
+
+element {
+	orientation:        vertical;
+	padding:            1.5% 0% 1.5% 0%;
+}
+
+element-text {
+	expand:             true;
+	vertical-align:     0.5;
+	margin:             0.5% 3% 0% 3%;
+	background-color:   inherit;
+        text-color:     inherit;
+}
+
+element selected {
+	background-color:   @fg;
+	text-color:         @bg;
+}

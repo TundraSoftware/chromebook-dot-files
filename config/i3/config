@@ -1,8 +1,6 @@
-#
-# I3 con Gaps, file di configurazione
-#
-# Gaudiero Tindaro Vincenzo - https://tundrasoftware.it/
-#
+# Progetto Chromebook
+# Configurazione I3 Gaps - v2.1
+# Gaudiero Tindaro Vincenzo - tundrasoftware.it
 
 set $mod Mod1
 
@@ -11,9 +9,9 @@ font pango:Tamzen 10
 
 #Custom Color
 # class                 border  backgr. text    indicator child_border
-client.focused          #E6DB64 #000000 #d7d7ef #E6DB64   #E6DB64
-client.focused_inactive #101010 #000000 #d7d7ef #101010   #101010
-client.unfocused        #101010 #000000 #d7d7ef #101010   #101010
+client.focused          #2b2b2b #b5b5aa #2b2b2b #2b2b2b   #2b2b2b
+client.focused_inactive #9e9e95 #000000 #2b2b2b #9e9e95   #9e9e95
+client.unfocused        #9e9e95 #000000 #2b2b2b #9e9e95   #9e9e95
 
 client.background       #ffffff
 
@@ -29,34 +27,22 @@ hide_edge_borders none
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+d exec rofi -show drun
 
 
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
+# move focus:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -71,22 +57,11 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -114,44 +89,31 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+#Notifiche di stato con herbe 
+bindcode 128 exec --no-startup-id scripts/herbe-system-bar.sh -a
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+#Tasti luminosità
+bindcode 232 exec --no-startup-id light -U 10 && scripts/herbe-system-bar.sh -b
+bindcode 233 exec --no-startup-id light -A 10 && scripts/herbe-system-bar.sh -b
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+#Tasti audio
+bindcode 122 exec --no-startup-id pamixer -d 10 && scripts/herbe-system-bar.sh -c 
+bindcode 123 exec --no-startup-id pamixer -i 10 && scripts/herbe-system-bar.sh -c
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
+# Wifi menu con Rofi
+bindsym $mod+w exec --no-startup-id scripts/rofi-wifi-menu.sh
 
-bindsym $mod+r mode "resize"
-
-#Mappatura tasti funzione 
-bindcode 128 exec --no-startup-id ~/Scripts/noti -a
-bindcode 232 exec --no-startup-id light -U 10 && Scripts/noti -b
-bindcode 233 exec --no-startup-id light -A 10 && Scripts/noti -b
-
+#System Action menu con Rofi
+bindsym $mod+e exec --no-startup-id scripts/rofi-system-action.sh
 
 #Eseguibili ogni volta che si accende il pc
-exec --no-startup-id feh --bg-fill Pictures/4k-rice-rp.png
 exec --no-startup-id setxkbmap -layout it
-exec --no-startup-id ~/Scripts/noti -a
+exec --no-startup-id scripts/herbe-system-bar.sh -a
+exec --no-startup-id feh --bg-fil Pictures/4k-gray.png
