@@ -1,0 +1,75 @@
+/*
+Theme Name: 	Tundra
+Theme URI: 		https://www.tundrasoftware.it/
+Description: 	Tema responsive :).
+Version:     	2.0
+Author:     	TundraSoftware💻
+Author URI:   https://www.tundrasoftware.it/chi-siamo/
+Site:         https://www.tundrasoftware.it
+Tested up to: 8.1.23
+Requires PHP: 5.6
+*/
+
+/* RESET */
+body, html{box-sizing: border-box;margin: 0;padding: 0;}*,*:before,*:after{ box-sizing: border-box; }
+h1,h2,h3,h4,h5,h6, p, ol, ul{margin: 0;padding: 0;}
+ol, ul, li{list-style: none;}
+figure img{border-radius: 10px;}
+img{height: auto;}
+a{text-decoration:none; color:inherit;} a:hover{color: inherit;}
+body{font-family: Arial, sans-serif; overflow-x: hidden; color: var(--dark); background: var(--light);}
+
+/* COLORI */
+:root {--primary:#cda434; --secondary:#a28128; --dark: #0d0d0d; --light: #f2f2f2; }
+.has-primary-color { color: var(--primary) !important; }
+.has-secondary-color { color: var(--secondary) !important; }
+
+.has-black-color { color: var(--dark) !important; }
+.has-white-color { color: var(--light) !important; }
+
+.has-primary-background-color { background-color: var(--primary) !important; }
+.has-secondary-background-color { background-color: var(--secondary) !important; }
+
+.has-black-background-color { background-color: var(--dark) !important; }
+.has-white-background-color { background-color: var(--light) !important; }
+
+
+/* HEADER */
+.header{background: var(--light); position: fixed; top: 0; left:0; z-index: 9999; width: 100%; padding: 15px 20px; border-bottom: 1px solid var(--primary);}
+.header__content{max-width: 1200px;width: 100%;margin: 0 auto; display: flex; justify-content: space-between; align-items: center;}
+.header__logo{display: flex; justify-content: flex-start; align-items: center; gap: 1rem;}
+.header__logo a{display: flex; justify-content: flex-start; align-items: center;}
+.header__logo a img{width:auto; height: 30px;}
+
+.header__menu li{display: inline-block; width: 100%;}
+.header__menu li a{display: block;padding: 15px;}
+.sub-menu {padding-left: 2rem;}
+
+.header__menu{position: absolute; top:60px; left:0; width: 100%; height: 0vh; background: var(--light); overflow: hidden;transition: all 1s ease;}
+
+.menu-open .header__menu{height: 100vh;padding: 3%;}
+
+.icon-hamburger span{height: 2px; width: 30px; background: var(--primary); display: block;transition: all 0.2s ease;}
+.icon-hamburger span:nth-child(2){margin-top: 10px;}
+
+body.menu-open{overflow: hidden;}
+.menu-open .icon-hamburger span:nth-child(1){transform: rotate(45deg) translateY(9px);}
+.menu-open .icon-hamburger span:nth-child(2){transform: rotate(-45deg) translateY(-9px);}
+
+.spacer{height: 100px;}
+
+/* MAIN */
+main, footer{max-width: 1200px;width: 100%;margin: 0 auto; padding: 0 20px;}
+
+/* HELPER */
+.woocommerce:where(body:not(.woocommerce-uses-block-theme)) ul.products li.product .price{color: var(--primary);}
+.woocommerce:where(body:not(.woocommerce-uses-block-theme)) div.product p.price, .woocommerce:where(body:not(.woocommerce-uses-block-theme)) div.product span.price{color: var(--primary);}
+.vertical-text { writing-mode: vertical-rl; transform: rotate(180deg); }
+.w-100{width: 100%;}
+.w-75{width: 75%;}
+.w-50{width: 50%;}
+.w-25{width: 25%;}
+
+/* WOOCOMMERCE STYLE */
+.wc-block-product-categories__dropdown select{ height: 100%;}
+

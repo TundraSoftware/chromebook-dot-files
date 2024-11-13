@@ -1,0 +1,83 @@
+{
+    "version": 2,
+    "settings": {
+        "layout": {
+            "contentSize": "1200px",
+            "wideSize": "100vh"
+        },
+        "spacing": {
+            "customPadding": true,
+            "customMargin": true,
+            "units": ["px", "em", "rem", "%"],
+            "padding": {
+                "small": "8px",
+                "medium": "16px",
+                "large": "32px"
+            },
+            "margin": {
+                "small": "8px",
+                "medium": "16px",
+                "large": "32px"
+            }
+        },
+        "typography": {
+            "fontSizes": [
+                {
+                    "name": "Small",
+                    "slug": "small",
+                    "size": "clamp(14px, 0.875rem + ((1vw - 3.2px) * 0.179), 16px)"
+                },
+                {
+                    "name": "Medium",
+                    "slug": "medium",
+                    "size": "clamp(15.747px, 0.984rem + ((1vw - 3.2px) * 0.737), 24px)"
+                },
+                {
+                    "name": "Large",
+                    "slug": "large",
+                    "size": "clamp(24.034px, 1.502rem + ((1vw - 3.2px) * 1.426), 40px)"
+                },
+                {
+                    "name": "XLarge",
+                    "slug": "xlarge",
+                    "size": "clamp(33.419px, 2.089rem + ((1vw - 3.2px) * 2.373), 60px)"
+                }
+            ],
+            "customFontWeight": true
+        }
+    },
+    "styles": {
+        "elements": {
+            "h1": {
+                "typography": {
+                    "fontWeight": "normal"
+                }
+            },
+            "h2": {
+                "typography": {
+                    "fontWeight": "normal"
+                }
+            },
+            "h3": {
+                "typography": {
+                    "fontWeight": "normal"
+                }
+            },
+            "h4": {
+                "typography": {
+                    "fontWeight": "normal"
+                }
+            },
+            "h5": {
+                "typography": {
+                    "fontWeight": "normal"
+                }
+            },
+            "h6": {
+                "typography": {
+                    "fontWeight": "normal"
+                }
+            }
+        }
+    }
+}
